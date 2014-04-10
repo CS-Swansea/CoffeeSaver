@@ -9,15 +9,15 @@ Repo Structure
 --------------
 
 	/- root
-		|- oscad  : OpenSCAD files for the various parts
+		|- oscad  		   : OpenSCAD files for the various parts
 		|   |- version <n> : Files pertaining to a specific version of the design
 		|
-		|- stl    : Compiled STL model files ready to be placed into print jobs
+		|- stl    		   : Compiled STL model files ready to be placed into print jobs
 		|   |- version <n> : Files pertaining to a specific version of the design
 		|
-		|- print  : Verfied .x3g Print Files ready to be produced
+		|- print  		   : Verfied .x3g Print Files ready to be produced
 		|
-	    |- images : Photos and Screenshots of Designs and the Build Process
+	    |- images 		   : Photos and Screenshots of Designs and the Build Process
 
 Version 1
 ---------
