@@ -5,6 +5,20 @@ Coffee Saver is a project to create a reusable and versatile *cap* for an open b
 
 The main CAD software used for this project is [OpenSCAD](http://www.openscad.org/) with additional functionality provided by [Dan Kirshner's OpenSCAD Threading Library](http://dkprojects.net/openscad-threads/threads.scad). 
 
+Repo Structure
+--------------
+
+	/- root
+		|- oscad  : OpenSCAD files for the various parts
+		|   |- version <n> : Files pertaining to a specific version of the design
+		|
+		|- stl    : Compiled STL model files ready to be placed into print jobs
+		|   |- version <n> : Files pertaining to a specific version of the design
+		|
+		|- print  : Verfied .x3g Print Files ready to be produced
+		|
+	    |- images : Photos and Screenshots of Designs and the Build Process
+
 Version 1
 ---------
 
