@@ -23,6 +23,7 @@ Version 1
 ---------
 
 ![](images/CoffeeSaver - v1.jpg)
+![](images/CoffeeSaver - v1 - oscad.png)
 
 Printing
 --------
