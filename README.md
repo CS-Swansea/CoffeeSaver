@@ -1,9 +1,14 @@
 Coffee Saver
 ============
 
-Coffee Saver is a project to create a reusable and versatile *cap* for an open bag of coffee granules, which can be printed on a 3D Printer.
+Coffee Saver is a project to create a reusable and versatile *cap* for an open bag of coffee granules, which can be produced on a 3D Printer.
 
 The main CAD software used for this project is [OpenSCAD](http://www.openscad.org/) with additional functionality provided by [Dan Kirshner's OpenSCAD Threading Library](http://dkprojects.net/openscad-threads/threads.scad). 
+
+Version 1
+---------
+
+![](images/CoffeeSaver - v1.jpg)
 
 Printing
 --------
