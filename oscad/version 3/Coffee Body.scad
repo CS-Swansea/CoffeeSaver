@@ -112,4 +112,4 @@ module complete(perimeter) {
 
 // Pass in the estimated perimeter 
 // of the bag you wish to fit...
-complete(260);
+rotate([180,0,0]) complete(260);

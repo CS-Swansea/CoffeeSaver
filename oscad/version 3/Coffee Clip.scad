@@ -6,7 +6,7 @@ TOL = 0.1;
 function calcSideLength(perimeter, radius) = (perimeter - (6.2831853071 * radius)) / 2.0;
 
 module clipProng(wall, length, thickness) {
-	baseKnob = 3;
+	baseKnob = 2;
 	baseScale = 1.5;
 
 	baseThumb = 37.5;
@@ -25,8 +25,8 @@ module clipProng(wall, length, thickness) {
 }
 
 module clip(angle, perimeter, thickness) {
-	baseRadius = (perimeter / 10.0);
-	baseSide   = (calcSideLength(perimeter, baseRadius) / 2.0) - 2;
+	baseRadius = (perimeter / 10.0) - 3.5;
+	baseSide   = (calcSideLength(perimeter, baseRadius) / 2.0) - 12.5;
 	baseWall = 8;
 
 	union() {
