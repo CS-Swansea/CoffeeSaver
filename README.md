@@ -13,7 +13,6 @@ Repo Structure
 		|   |- version <n> : Files pertaining to a specific version of the design
 		|
 		|- stl    		   : Compiled STL model files ready to be placed into print jobs
-		|   |- version <n> : Files pertaining to a specific version of the design
 		|
 		|- print  		   : Verfied .x3g Print Files ready to be produced
 		|
