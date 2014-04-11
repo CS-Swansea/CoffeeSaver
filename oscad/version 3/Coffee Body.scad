@@ -1,4 +1,7 @@
-TOL = 0.1;
+use <../libraries/threads.scad>
+use <../libraries/text.scad>
+
+TOL = 0.1;  
 
 // Calculate how long the side length should be 
 // for a rounded rectangle of a given perimeter
@@ -18,7 +21,7 @@ module roundedRect(radius, length, thickness, accuracy = 100) {
 		// Create the cuboid which connects the cylinders
 		translate([-hlen, -radius, 0]) cube([length, rad2, thickness]);
 	}
-}
+} 
 
 // Create a rounded ring at origin
 module roundedRing(radius, innerRadius, length, thickness, accuracy = 100) {
@@ -28,25 +31,46 @@ module roundedRing(radius, innerRadius, length, thickness, accuracy = 100) {
 	}
 }
 
+module cap_socket(rad, thick, pad) {
+	union() {
+		cylinder(h = pad+1, r = rad, center = false, $fn = 100);
+		translate([0,0,pad+1]) metric_thread((rad * 2.0)-1.25, 2, thick, n_starts = 1);
+		translate([0,0,(pad + thick+1)]) cylinder(h = 1, r = rad-2, center = false, $fn = 100);
+	}
+}
+
 module innerShaft(baseRadius, baseSide, height) {
 	lipHeight = 5;
 	slotWidth = 20;
 	slotDepth = 2;
 	slotWall = 2;
+	slotWall2 = (slotWall * 2.0);
+	slotTransX = (slotWidth / 2.0);
+	slotTransY = (baseRadius - (6 - TOL)) - slotDepth;
 	
 	difference() {
-		union() {	
+		union() {
+			// Inner Shaft	
 			roundedRing(baseRadius - 4, baseRadius - 6, baseSide, height);
+			// Shaft Lip
 			roundedRing(baseRadius - 1, baseRadius - 6, baseSide, lipHeight);
 
-			// Horrible messy shit to make the walls for the slots
-			translate([-((slotWidth / 2.0) + (slotWall)),((baseRadius - (6 - TOL)) - slotDepth) - slotWall, 0]) cube([slotWidth + (slotWall * 2.0), slotDepth + slotWall, height]);
-			rotate([0,0,180]) translate([-((slotWidth / 2.0) + (slotWall)),((baseRadius - (6 - TOL)) - slotDepth) - slotWall, 0]) cube([slotWidth + (slotWall * 2.0), slotDepth + slotWall, height]);
+			// Walls for the Slots
+			translate([-(slotTransX + slotWall),(slotTransY - slotWall), 0]) {
+				cube([(slotWidth + (slotWall2)), (slotDepth + slotWall), height]);
+			}
+			rotate([0,0,180]) translate([-(slotTransX + slotWall),(slotTransY - slotWall), 0]) {
+				cube([(slotWidth + (slotWall2)), (slotDepth + slotWall), height]);
+			}
 		}
-
-		// Horrible messy Shit to make the slots
-		translate([-(slotWidth / 2.0),(baseRadius - (6 - TOL)) - slotDepth,lipHeight+TOL]) cube([slotWidth, slotDepth+10, (height - lipHeight) - slotWall]);
-		rotate([0,0,180]) translate([-(slotWidth / 2.0),(baseRadius - (6 - TOL)) - slotDepth,lipHeight+TOL]) cube([slotWidth, slotDepth+10, (height - lipHeight) - slotWall]);
+		
+		// Hollows for Slots
+		translate([(-slotTransX),(slotTransY),(lipHeight+TOL)]) {
+			cube([slotWidth, (slotDepth+10), ((height - lipHeight) - slotWall)]);
+		}
+		rotate([0,0,180]) translate([(-slotTransX),(slotTransY),(lipHeight+TOL)]) {
+			cube([slotWidth, (slotDepth+10), ((height - lipHeight) - slotWall)]);
+		}
 	}
 	
 }
@@ -59,10 +83,30 @@ module complete(perimeter) {
 	// Base Thickness for Component Walls
 	baseWall = 3.0;
 	
-	union() {
-		translate([0,0,8]) roundedRect(baseRadius + baseWall, baseSide, 3);
-		roundedRing(baseRadius + baseWall, baseRadius, baseSide, 10);
-		translate([0,0,-15]) innerShaft(baseRadius, baseSide, 25);
+	difference() {
+		union() {
+			translate([0,0,8]) roundedRect(baseRadius + baseWall, baseSide, 3);
+			roundedRing(baseRadius + baseWall, baseRadius, baseSide, 10);
+			translate([0,0,-15]) innerShaft(baseRadius, baseSide, 25);
+
+			translate([(baseSide / 2.0),0,10.02]) cap_socket(14, 5, 1);
+
+			translate([-40,-3,10]) {
+				translate([0,3.5,0]) scale([0.85,0.85,2]) drawtext("Coffee");
+				translate([15,-3.5,0]) scale([0.85,0.85,2]) drawtext("Saver");
+
+				translate([8,-1,0]) {
+					cylinder(h = 1.5, r = 4, center = false, $fn = 100);
+				}
+
+				translate([20,3,0]) roundedRing(12, 10, 30, 2);
+			}
+		}
+
+		translate([(baseSide / 2.0),0,5]) cylinder(h = (20), r = 11, center = false, $fn = 100);
+		translate([-40,-3,10]) {
+				translate([5.25,-3,0]) scale([0.5,0.5,2]) drawtext("v3");
+		}
 	}
 }
 
