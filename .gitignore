@@ -213,3 +213,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+oscad/libraries/pyramid.scad
+oscad/libraries/text.scad
+oscad/libraries/threads.scad
