@@ -18,6 +18,11 @@ Repo Structure
 		|
 	    |- images 		   : Photos and Screenshots of Designs and the Build Process
 
+Version 3
+---------
+
+![](images/CoffeeSaver - v3 - oscad.png)
+
 Version 1
 ---------
 
