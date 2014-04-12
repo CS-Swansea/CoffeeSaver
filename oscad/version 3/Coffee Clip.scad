@@ -14,10 +14,12 @@ module clipProng(wall, length, thickness) {
 	union() {
 		cube([wall, length, thickness]);
 
+		/*
 		translate([0,-baseThumb, 0]) {
 			cube([wall, baseThumb, thickness]);
 			translate([(wall / 2.0),0,0]) cylinder(h = (thickness), r = (wall / 2.0), center = false, $fn = 100);
 		}
+		*/
 
 		translate([wall,(length - (baseKnob * baseScale)),0]) scale([1,baseScale,1]) cylinder(h = (thickness), r = (baseKnob), center = false, $fn = 100);			 
 	}
@@ -26,8 +28,8 @@ module clipProng(wall, length, thickness) {
 
 module clip(angle, perimeter, thickness) {
 	baseRadius = (perimeter / 10.0) - 3.5;
-	baseSide   = (calcSideLength(perimeter, baseRadius) / 2.0) - 12.5;
-	baseWall = 8;
+	baseSide   = (calcSideLength(perimeter, baseRadius) / 2.0) - 12;
+	baseWall = 7;
 
 	union() {
 		difference() {
