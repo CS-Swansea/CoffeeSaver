@@ -5,7 +5,7 @@ Coffee Saver is a project to create a reusable and versatile *cap* for an open b
 
 Find this project on [Thingiverse](http://www.thingiverse.com/thing:296271)!
 
-The main CAD software used for this project is [OpenSCAD](http://www.openscad.org/) with additional functionality provided by [Dan Kirshner's OpenSCAD Threading Library](http://dkprojects.net/openscad-threads/threads.scad), [PGreenland's Text Library](https://www.thingiverse.com/thing:59817/#files), and [DannyStaple's Pyramid Function](https://github.com/dannystaple/OpenSCAD-Parts-Library/blob/master/pyramid.scad). 
+The main CAD software used for this project is [OpenSCAD](http://www.openscad.org/) with additional functionality provided by [Dan Kirshner's OpenSCAD Threading Library](http://dkprojects.net/openscad-threads/threads.scad) and [PGreenland's Text Library](https://www.thingiverse.com/thing:59817/#files).
 
 Repo Structure
 --------------
