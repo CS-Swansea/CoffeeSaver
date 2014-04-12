@@ -21,6 +21,7 @@ Repo Structure
 Version 3
 ---------
 
+![](images/CoffeeSaver - v3.jpg)
 ![](images/CoffeeSaver - v3 - oscad.png)
 
 Version 1
