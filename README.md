@@ -23,14 +23,14 @@ Repo Structure
 Version 3
 ---------
 
-![](images/CoffeeSaver - v3.jpg)
-![](images/CoffeeSaver - v3 - oscad.png)
+![](https://raw.githubusercontent.com/CS-Swansea/CoffeeSaver/master/images/CoffeeSaver - v3.jpg)
+![](https://raw.githubusercontent.com/CS-Swansea/CoffeeSaver/master/images/CoffeeSaver - v3 - oscad.png)
 
 Version 1
 ---------
 
-![](images/CoffeeSaver - v1.jpg)
-![](images/CoffeeSaver - v1 - oscad.png)
+![](https://raw.githubusercontent.com/CS-Swansea/CoffeeSaver/master/images/CoffeeSaver - v1.jpg)
+![](https://raw.githubusercontent.com/CS-Swansea/CoffeeSaver/master/images/CoffeeSaver - v1 - oscad.png)
 
 Printing
 --------
